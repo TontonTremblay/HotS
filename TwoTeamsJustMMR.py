@@ -34,13 +34,13 @@ def randomizedData(data):
 
 
 # df = pd.read_csv('data/learning_ready.csv')
-df = pd.read_csv('data/learning_ready.csv',nrows=100000)
+df = pd.read_csv('data/learning_ready_with_mmr.csv',nrows=100000)
 
 
 # df.columns = ['r'] + list(df.columns[1:])
 #prepare the data
-data = df[df.columns[1:]].values
-# print data,df
+data = df[df.columns[97:]].values
+print data
 # quit()
 
 r = []
@@ -67,4 +67,4 @@ print rdummy.mean(),rdummy.std()
 # sns.plt.show()
 
 from sklearn.externals import joblib
-joblib.dump(clf, 'TwoTeams/clf.pkl') 
+joblib.dump(clf, 'MMR/clf.pkl') 

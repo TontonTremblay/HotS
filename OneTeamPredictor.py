@@ -34,7 +34,7 @@ def randomizedData(data):
 
 
 # df = pd.read_csv('data/learning_ready.csv')
-df = pd.read_csv('data/learning_ready.csv',nrows=100000)
+df = pd.read_csv('data/learning_ready.csv',nrows=10000)
 
 dft =  df.iloc[:,1:49]
 df = pd.concat([dft, df.iloc[:,-1]],axis=1)
@@ -50,7 +50,7 @@ data = df[df.columns[0:]].values
 r = []
 rdummy = []
 
-n=1
+n=10
 for i in range(n):
     xy = randomizedData(data)
     clf = RandomForestClassifier()
@@ -66,9 +66,9 @@ print r.mean(),r.std()
 print rdummy.mean(),rdummy.std()
 
 
-# sns.distplot(r,bins=8,rug=True)
-# sns.distplot(rdummy,bins=8,rug=True)
-# sns.plt.show()
+sns.distplot(r,bins=8,rug=True)
+sns.distplot(rdummy,bins=8,rug=True)
+sns.plt.show()
 
-from sklearn.externals import joblib
-joblib.dump(clf, 'filename.pkl') 
+# from sklearn.externals import joblib
+# joblib.dump(clf, 'OneTeam/clf.pkl') 
